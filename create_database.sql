@@ -87,6 +87,7 @@ REFERENCES
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 -- 3. Insert data into tables
 -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+
 INSERT INTO users
     (user_id, user_first_name, user_last_name, user_email, user_age, user_gender)
 VALUES
