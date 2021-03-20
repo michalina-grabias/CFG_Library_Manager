@@ -45,10 +45,12 @@ VALUES
 -- Log in last user activity
 CREATE TABLE 
 	user_activity
-(user_id INT NOT NULL AUTO_INCREMENT, 
-last_update TIMESTAMP,
-PRIMARY KEY (user_id));
+(user_id VARCHAR(10) NOT NULL , 
+last_update TIMESTAMP);
 
+ALTER TABLE user_activity
+ADD CONSTRAINT FK_user_id
+FOREIGN KEY (user_id) REFERENCES users(user_id);
 
 DELIMITER //
 CREATE EVENT user_login
