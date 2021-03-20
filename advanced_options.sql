@@ -8,7 +8,8 @@ USE library_manager;
 -- Add a new book to user shelf
 DELIMITER //
 
-CREATE PROCEDURE UpdateBookshelf(IN user_id_in VARCHAR(10), IN book_id_in VARCHAR(10), IN r_status_in VARCHAR(50))
+CREATE PROCEDURE 
+	UpdateBookshelf(IN user_id_in VARCHAR(10), IN book_id_in VARCHAR(10), IN r_status_in VARCHAR(50))
 BEGIN
 	INSERT INTO reading_status (user_id, book_id, r_status)
     VALUES ( user_id_in, book_id_in, r_status_in);
@@ -42,7 +43,8 @@ VALUES
 -- -- -- -- -- -- -- -- ---- -- -- -- -- -- -- -- ---- -- -- -- -- -- -- -- ---- -- -- -- -- --
 
 -- Log in last user activity
-CREATE TABLE user_activity
+CREATE TABLE 
+	user_activity
 (user_id INT NOT NULL AUTO_INCREMENT, 
 last_update TIMESTAMP,
 PRIMARY KEY (user_id));
@@ -65,8 +67,10 @@ DELIMITER ;
 -- -- -- -- -- -- -- -- ---- -- -- -- -- -- -- -- ---- -- -- -- -- -- -- -- ---- -- -- -- -- --
 
 -- Show information for all users that are currently reading book X
-SELECT user_id, user_first_name, user_last_name, user_age, user_role, books_read
-FROM all_users_ranking
+SELECT 
+	user_id, user_first_name, user_last_name, user_age, user_role, books_read
+FROM 
+	all_users_ranking
 WHERE user_id IN 
 	(SELECT user_id 
 	FROM reading_status AS r
